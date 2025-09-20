@@ -1,0 +1,354 @@
+.reservation-calendar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.calendar-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.calendar-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.calendar-header p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.reservation-form {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.form-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.form-section h3 svg {
+  color: var(--primary-color);
+}
+
+/* Grid de fechas */
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.date-option {
+  padding: 15px 10px;
+  border: 2px solid #eee;
+  background: white;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.date-option:hover {
+  border-color: var(--primary-color);
+  background: rgba(252, 105, 5, 0.05);
+}
+
+.date-option.selected {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+}
+
+.date-display {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.date-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4757;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* Grid de horarios */
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+}
+
+.time-option {
+  padding: 15px 10px;
+  border: 2px solid #eee;
+  background: white;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+}
+
+.time-option:hover:not(.unavailable) {
+  border-color: var(--primary-color);
+  background: rgba(252, 105, 5, 0.05);
+}
+
+.time-option.selected {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+}
+
+.time-option.unavailable {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #f8f9fa;
+}
+
+.time-display {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.capacity-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.unavailable-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: #ff4757;
+}
+
+/* Formulario de información */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 15px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(252, 105, 5, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-reservation-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-reservation-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submit-reservation-btn:hover::before {
+  left: 100%;
+}
+
+.submit-reservation-btn:hover {
+  background: #e55a04;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(252, 105, 5, 0.3);
+}
+
+.submit-reservation-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mensaje de éxito */
+.success-message {
+  text-align: center;
+  padding: 60px 40px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.success-message h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.notification-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(76, 175, 80, 0.1);
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.notification-icon {
+  font-size: 1.5rem;
+  color: #4CAF50;
+}
+
+.notification-info span {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reservation-calendar {
+    padding: 15px;
+  }
+  
+  .calendar-header h2 {
+    font-size: 2rem;
+  }
+  
+  .reservation-form {
+    padding: 20px;
+  }
+  
+  .date-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+  
+  .time-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .date-option,
+  .time-option {
+    padding: 12px 8px;
+  }
+  
+  .date-display,
+  .time-display {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .calendar-header p {
+    font-size: 1rem;
+  }
+  
+  .date-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .time-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .form-section h3 {
+    font-size: 1.2rem;
+  }
+}
