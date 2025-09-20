@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaCalendarAlt, FaUsers, FaUtensils, FaMapMarkerAlt, FaPhone, FaEnvelope, FaClock, FaCheck, FaWhatsapp } from 'react-icons/fa'
+import { FaCalendarAlt, FaUsers, FaUtensils, FaCheck, FaWhatsapp } from 'react-icons/fa'
 import { sendWhatsAppMessage, generateEventMessage } from '../services/whatsappService'
 import './Events.css'
 
@@ -363,50 +363,6 @@ const Events = () => {
         </div>
       </motion.section>
 
-      {/* Contact Info Section */}
-      <motion.section 
-        className="contact-info-section"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-      >
-        <div className="container">
-          <motion.div className="contact-info-content" variants={itemVariants}>
-            <h2>Información de Contacto</h2>
-            <div className="contact-details">
-              <div className="contact-item">
-                <FaMapMarkerAlt className="contact-icon" />
-                <div>
-                  <h4>Ubicación</h4>
-                  <p>Frente al Mesón de las Margaritas<br />San Onofre, Sucre</p>
-                </div>
-              </div>
-              <div className="contact-item">
-                <FaPhone className="contact-icon" />
-                <div>
-                  <h4>Teléfono</h4>
-                  <p>+57 (300) 123-4567</p>
-                </div>
-              </div>
-              <div className="contact-item">
-                <FaEnvelope className="contact-icon" />
-                <div>
-                  <h4>Email</h4>
-                  <p>eventos@millanerita.com</p>
-                </div>
-              </div>
-              <div className="contact-item">
-                <FaClock className="contact-icon" />
-                <div>
-                  <h4>Horarios</h4>
-                  <p>Lunes - Domingo<br />6:00 AM - 10:00 PM</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </motion.section>
     </div>
   )
 }

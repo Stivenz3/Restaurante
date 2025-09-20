@@ -1,14 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaTiktok, FaTwitter, FaInstagram, FaLinkedin, FaGithub, FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
+import { FaWhatsapp, FaInstagram, FaGithub, FaPhone, FaMapMarkerAlt, FaClock } from 'react-icons/fa'
 import './Footer.css'
 
 const Footer = () => {
   const socialLinks = [
-    { icon: FaTiktok, url: 'https://www.tiktok.com/@westwatch_?is_from_webapp=1&sender_device=pc', label: 'TikTok' },
-    { icon: FaTwitter, url: 'https://x.com/Stiven_ZD', label: 'Twitter' },
+    { icon: FaWhatsapp, url: 'https://wa.me/573226312704', label: 'WhatsApp' },
     { icon: FaInstagram, url: 'https://www.instagram.com/stiven_zd/', label: 'Instagram' },
-    { icon: FaLinkedin, url: 'https://www.linkedin.com/in/jhoan-stiven-zarza-delgado-a1a069280/', label: 'LinkedIn' },
     { icon: FaGithub, url: 'https://github.com/Stivenz3', label: 'GitHub' }
   ]
 
