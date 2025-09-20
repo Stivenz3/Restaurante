@@ -114,6 +114,13 @@ html {
   font-size: 16px;
 }
 
+/* Mejorar el comportamiento de scroll en móviles */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto; /* Desactivar scroll suave en móviles para evitar problemas */
+  }
+}
+
 body {
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
